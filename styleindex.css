@@ -1,0 +1,41 @@
+h1{
+    color: darkviolet;
+    background-color: aquamarine;
+    padding: 5px;
+    border: 5px solid black;
+}
+
+nav{
+    background-color: lightblue;
+    color: crimson;
+    padding: 5px;
+    border: 5px solid black;
+}
+th{
+    text-decoration: underline;
+}
+h2{
+    text-decoration: underline wavy blue;
+}
+aside{
+    background-color: lightgrey;
+    border-radius: 10px;
+    border: 5px solid black;
+    padding: 5px;
+   box-shadow: 10px 5px 5px red;
+   
+}
+
+p{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: large;
+  font-style: normal;
+  text-align: center;
+}
+li{
+    list-style-type: disc;
+    text-align: center;
+
+}
