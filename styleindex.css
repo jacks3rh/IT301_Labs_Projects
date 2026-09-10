@@ -1,13 +1,13 @@
 h1{
-    color: darkviolet;
-    background-color: aquamarine;
+    color: white;
+    background-color: rgb(72, 74, 99);
     padding: 5px;
     border: 5px solid black;
 }
 
 nav{
-    background-color: lightblue;
-    color: crimson;
+    background-color: rgb(204, 223, 229);
+    color: rgb(66, 68, 88);
     padding: 5px;
     border: 5px solid black;
 }
@@ -15,14 +15,15 @@ th{
     text-decoration: underline;
 }
 h2{
-    text-decoration: underline wavy blue;
+    text-decoration: underline wavy rgb(58, 58, 102);
+    text-align: center;
 }
 aside{
-    background-color: lightgrey;
+    background-color: rgb(232, 225, 225);
     border-radius: 10px;
     border: 5px solid black;
     padding: 5px;
-   box-shadow: 10px 5px 5px red;
+    box-shadow: 10px 5px 5px rgb(148, 142, 142);
    
 }
 
@@ -35,7 +36,27 @@ p{
   text-align: center;
 }
 li{
-    list-style-type: disc;
-    text-align: center;
+    list-style-type: square;
+    list-style-position: inside;
+}
 
+footer{
+    color: white;
+    background-color: rgb(72, 74, 99);
+    padding: 5px;
+    border: 5px solid black;
+    text-align: center;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 6px;
+}
+img{
+    width: 350px;
+    height: auto;
 }
