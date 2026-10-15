@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            background-color: blue;
+            color: white;
+            font-size: 1.2em;
+            width: 200px;
+            padding: 3px;
+            text-align: center;
+        }
+        #box:hover{
+            cursor: pointer;
+        }
+        #div{
+            height: 75vh;
+        }
+    </style>
+</head>
+<body>
+    <div id = "box">Click Me!</div>
+    <div id = "div"></div>
+    <script>
+        const box = document.getElementById('box');
+        box.addEventListener('click', function(){
+            box.style.backgroundColor = 'red';
+            box.textContent = "Ouch! 🤕"
+            
+        });
+        box.addEventListener('mouseover', function(){
+            box.style.backgroundColor = 'yellow';
+            box.textContent = "Do not click! 😠"
+            
+        });
+        box.addEventListener('mouseout', function(){
+            box.style.backgroundColor = 'lightgreen';
+            box.textContent = "Phew! 😌"
+            
+        });
+        box.addEventListener('dblclick', function(){
+            box.style.backgroundColor = 'pink';
+            box.textContent = "Double trouble! 🤩"
+        });
+        div.addEventListener('mousemove', function(){
+            box.style.backgroundColor = 'lightblue';
+            box.textContent = "I see you! 👀"
+
+        });
+    </script>
+</body>
+</html>
