@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings and Calculator</title>
+</head>
+<body>
+    <form action="#">
+        <label for="name">What is your Name?</label>
+        <input type="string" id="name"> <br><br>
+        <button id="bttn" type="button">Greet Me</button>
+    </form>
+    <p id="result"></p>
+
+    <form action="#">
+        <label for="num">Number 1</label>
+        <input type="number" id="num"> <br><br>
+        <label for="num2">Number 2</label>
+        <input type="number" id="num2"> <br><br>
+        
+        <input type="radio" name="math" value="add">Add <br>
+        <input type="radio" name="math" value="subtract">Subtract <br>
+        <input type="radio" name="math" value="multiply">Multiply <br>
+        <input type="radio" name="math" value="divide">Divide <br><br>
+        
+        <button id="select" type="button">Submit</button>
+    </form>
+    <p id="opp"></p>
+    <script>
+        const name = document.getElementById('name');
+        const num = document.getElementById('num');
+        const num2 = document.getElementById('num2');
+
+        document.getElementById('bttn').addEventListener('click', function(){
+            result.textContent = "Greetings " + (name.value);
+        });
+        document.getElementById('select').addEventListener('click', function(){
+            const opp = document.querySelector(`[name=math]:checked`);
+            if (opp == add) {
+                console.log(add(num, num2));
+            }
+        });    
+
+        const add = (a, b) => a + b;
+        const sub = (a, b) => a - b;
+        const divide = (a, b) => a / b;
+        const mult = (a, b) => a * b;
+    </script>
+</body>
+</html>
