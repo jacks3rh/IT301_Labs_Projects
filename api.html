@@ -7,29 +7,43 @@
 </head>
 <body>
     <h1>Profile Card</h1>
+
+    <img id="pic" alt="Profile picture">
+    <h2 id="name">Loading</h2>
+    <p id="email"></p>
+    <p id="phone"></p>
+
+
+    <button type="button" id="generate">Generate Profile</button>
     <script>
-        const site = 'https://randomuser.me/api/'
-        let img = document.createElement('img');
+        const site = 'https://randomuser.me/api/';
 
-        let bttn = document.createElement('button');
-        bttn.type = 'button';
-        bttn.textContent = 'Generate Profile';
+        const pic    = document.getElementById('pic');
+        const nameEl = document.getElementById('name');
+        const email  = document.getElementById('email');
+        const phone  = document.getElementById('phone');
+        const bttn   = document.getElementById('generate');
 
+        const getInfo = async () => {
+            try {
+                const response = await fetch(site);
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                const data = await response.json();
+                const user = data.results[0];
 
-        let form = document.createElement('form');
-        form.action = '#';
-
-        form.appendChild(bttn);
-        document.body.appendChild(form);
-        const getInfo =  async()=>{
-            try{
-                let result = await fetch(site);
-                result = await result.json();
-                
-                
-            }catch{(reason)=>console.log(reason);}
-        }
+                pic.src = user.picture.large;
+                nameEl.textContent = `${user.name.title} ${user.name.first} ${user.name.last}`;
+                email.textContent = `Email: ${user.email}`;
+                phone.textContent = `Phone: ${user.phone}`;
+            } catch (error) {
+                console.log(error);
+                nameEl.textContent = 'Could not load profile';
+            }
+        };
         bttn.addEventListener('click', getInfo);
+        getInfo();
     </script>
 </body>
 </html>
