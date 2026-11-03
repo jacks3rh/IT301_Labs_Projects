@@ -83,20 +83,23 @@
         const getPosts = async() =>{
             try{
                 const prom = await fetch(site);
-                p = await prom.json(); 
+                p = await prom.json();
                 console.table(p);
             }catch(error){
                 console.log(error);
             }
         }
-        
 
-        const displayPosts = () => {
-            p.forEach(post => {
+
+        const displayPosts = (posts = p) => {
+            posts.forEach(post => {
                 const article = document.createElement('article');
                 const title = document.createElement('h2');
                 title.textContent = post.title;
                 article.appendChild(title);
+                const ids = document.createElement('p');
+                ids.textContent = `User ID: ${post.userId} | Post ID: ${post.id}`;
+                article.appendChild(ids);
                 const body = document.createElement('p');
                 body.textContent = post.body;
                 article.appendChild(body);
@@ -105,8 +108,33 @@
         };
         getPosts().then(displayPosts);
 
-        document.getElementById('filterBtn')
+        document.getElementById('filterBtn').addEventListener('click', () => {
+            const userId = Number(document.getElementById('userID').value);
+            console.table(p.filter(post => post.userId === userId));
+        });
 
+        document.getElementById('displayUserBtn').addEventListener('click', () => {
+            document.querySelectorAll('article').forEach((article) => {
+                article.remove();
+            });
+            const userId = Number(document.getElementById('displayUserID').value);
+            displayPosts(p.filter(post => post.userId === userId));
+        });
+
+        document.getElementById('findBtn').addEventListener('click', () => {
+            document.querySelectorAll('article').forEach((article) => {
+                article.remove();
+            });
+            const postId = Number(document.getElementById('postID').value);
+            const post = p.find(post => post.id === postId);
+            if (post) {
+                displayPosts([post]);
+            } else {
+                const article = document.createElement('article');
+                article.textContent = 'Post not found.';
+                document.body.appendChild(article);
+            }
+        });
     </script>
 
 </body>
